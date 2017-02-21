@@ -1,0 +1,197 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: arial, sans-serif;
+}
+
+.header {
+	overflow: hidden;
+	background: #acae00;
+	color: #fff;
+	padding: 20px;
+}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	float: left;
+	font-size: 23px;
+}
+
+.header div {
+	float: right;
+}
+
+.header a {
+	color: #fff;
+}
+
+.main {
+	width: 1200px;
+	margin: 30px auto;
+	overflow: hidden;
+}
+
+.projects {
+	width: 300px;
+	float: right;
+}
+
+.projects ul {
+	list-style: none;
+	margin: 40px -1px 0 0;
+	padding: 0;
+}
+
+.projects li {
+	padding: 20px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.projects li a.project-title {
+	color: #444;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 18px;
+	display: block;
+}
+
+.projects li.active {
+	background: #ffd;
+	border: 1px solid #995;
+	border-radius: 10px 0 0 10px;
+	border-right: 0 none;
+	padding: 20px;
+}
+
+.projects li img {
+	vertical-align: middle;
+}
+
+.projects .due, .projects .meta, .projects .progress {
+	font-size: 13px;
+	color: #666;
+}
+
+.projects .due {
+	margin: 10px 0 4px 0;
+}
+
+.projects .meta a {
+	margin-right: 10px;
+}
+
+.projects .progress {
+	position: relative;
+	margin-top: 20px;
+	border: 1px solid #ddd;
+	background: #bb9;
+	color: #fff;
+	height: 18px;
+}
+
+.projects .progress .bar {
+	display: inline-block;
+	position: absolute;
+	width: 45%;
+	background: #996;
+	height: 18px;
+}
+
+.projects .progress .percent {
+	display: inline-block;
+	position: absolute;
+	padding: 2px 4px;
+}
+
+.milestones {
+	width: 840px;
+	float: right;
+	border: 1px solid #995;
+	border-radius: 10px;
+	background: #ffd;
+	color: #444;
+	padding: 30px 20px;
+}
+
+h2 {
+	font-size: 18px;
+	margin: 0 0 20px; 0;
+	padding: 0 0 10px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+h2.late {
+	background: url(img/alarm.png) no-repeat 0;
+	padding: 10px 0 10px 34px;
+}
+
+h2.upcoming {
+	background: url(img/upcoming.png) no-repeat 0;
+	padding: 10px 0 10px 34px;
+}
+
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ol > li a {
+	color: #777;
+	text-decoration: none;
+}
+
+ol > li {
+	color: #777;
+	padding: 10px;
+	margin-bottom: 4px;
+	background: #ffd url(img/up.png) no-repeat 99.5% 7px;
+	border: 1px solid #dd9;
+}
+
+ol.overdue > li {
+	background: #fdd url(img/up.png) no-repeat 99.5% 7px;
+	border: 1px solid #955;
+}
+
+ol > li.open {
+	background: #fff url(img/down.png) no-repeat 99.5% 7px;
+}
+
+ol > li.open a {
+	color: #333;
+	font-weight: bold;
+}
+
+ol > li time {
+	color: #777;
+	font-size: 13px;
+	margin-left: 10px;
+}
+
+ol > li time span {
+	color: #faa;
+}
+
+div.hr {
+	margin: 40px 0;
+}
+
+.tasks {
+	list-style: none;
+	margin: 20px 0 0 20px;
+	padding: 0;
+	font-size: 13px;
+}
+
+form {
+	margin: 10px 0 0 20px;
+}
+
+form input, form button {
+	border: 1px solid #ddd;
+	background: #fff;
+	font-size: 12px;
+	padding: 4px 8px;
+}
