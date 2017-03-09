@@ -37,6 +37,11 @@ h1 {
 	float: right;
 }
 
+.project-header {
+	text-decoration: none;
+	color: green;
+}
+
 .projects ul {
 	list-style: none;
 	margin: 40px -1px 0 0;
@@ -194,4 +199,9 @@ form input, form button {
 	background: #fff;
 	font-size: 12px;
 	padding: 4px 8px;
+}
+
+.alert-text {
+	font-size: 0.9em;
+	color: steelblue;
 }

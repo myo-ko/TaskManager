@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Task Manager</title>
+	<title>TM - @yield('title')</title>
 	<link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -10,10 +10,16 @@
 		@include('shared.nav')
 
 		<div class="main">
-
-			@yield('content')
+			<div class="milestones">
+				@yield('milestones')
+				@yield('content')
+			</div>
+			<div class="projects">
+				@yield('projects')
+			</div>
 
 		</div>
 	</div>
+
 </body>
 </html>

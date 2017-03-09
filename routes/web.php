@@ -11,8 +11,24 @@
 |
 */
 
-Route::get('/', "HomeController@Index");
+Route::get('/', "HomeController@Index")->name("Home");
 
 Route::get('/login', "HomeController@Login");
 
 Route::post('/login', "HomeController@CheckLogin");
+
+Route::group([ "prefix" => "project", ], function(){
+
+    Route::get("/new", 'ProjectController@create');
+
+    Route::post("/new", 'ProjectController@store');
+
+    Route::get("/{id}", "ProjectController@show")->name("ProjectMilestones");
+
+});
+
+Route::group(["prefix" => "milestones"], function(){
+
+    Route::get('/{projectid}', "MilestoneController@index")->name('milestonesIndex');
+
+});
