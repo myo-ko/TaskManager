@@ -16,8 +16,13 @@ class Milestone extends Model
 
     public $timestamps = false;
 
+    public function tasks()
+    {
+        return $this->hasMany("App\Task", "milestone_id", "milestone_id");
+    }
+
     public function project()
     {
-        return $this->hasOne("App\Project", "project_id", "project_id");
+        return $this->belongsTo("App\Project", "project_id", "project_id");
     }
 }

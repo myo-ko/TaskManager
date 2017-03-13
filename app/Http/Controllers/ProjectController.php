@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $milestones = $project->milestones->where('due_date', '>=', Carbon::now());
         return view('milestones.index', [
             'projects' => $projects,
-            'id' => $id,
+            'pid' => $id,
             'dueMilestones' => $dueMilestones,
             'milestones' => $milestones,
         ]);

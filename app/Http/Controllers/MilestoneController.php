@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\User;
+use App\Milestone;
+use App\Project;
 
 class MilestoneController extends Controller
 {
@@ -14,7 +17,7 @@ class MilestoneController extends Controller
      */
     public function index()
     {
-
+        //
     }
 
     /**
@@ -46,7 +49,22 @@ class MilestoneController extends Controller
      */
     public function show($id)
     {
-        //
+        $projects = Project::all();
+        $milestone = Milestone::find($id);
+
+        $project = $milestone->project;
+        $dueMilestones = $project->milestones->where('due_date', '<', Carbon::now());
+        $milestones = $project->milestones->where('due_date', '>=', Carbon::now());
+        $tasks = $milestone->tasks;
+
+        return view("tasks.index",
+        [
+            'projects' => $projects,
+            'pid' => $project->project_id,
+            'dueMilestones' => $dueMilestones,
+            'milestones' => $milestones,
+            'mid' => $milestone->milestone_id,
+        ]);
     }
 
     /**

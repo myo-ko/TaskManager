@@ -29,6 +29,7 @@ Route::group([ "prefix" => "project", ], function(){
 
 Route::group(["prefix" => "milestones"], function(){
 
-    Route::get('/{projectid}', "MilestoneController@index")->name('milestonesIndex');
+    Route::get("/{id}", "MilestoneController@show")->name("MilestoneTasks");
+
 
 });
