@@ -31,5 +31,8 @@ Route::group(["prefix" => "milestones"], function(){
 
     Route::get("/{id}", "MilestoneController@show")->name("MilestoneTasks");
 
+    Route::post("/store", "MilestoneController@store")->name("MilestoneStore");
+
+    
 
 });

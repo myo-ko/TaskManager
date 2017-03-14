@@ -136,6 +136,11 @@ h2.upcoming {
 	padding: 10px 0 10px 34px;
 }
 
+h2.new {
+	background: url(img/new.png) no-repeat 0;
+	padding: 10px 0 10px 34px;
+}
+
 ol {
 	list-style: none;
 	margin: 0;
@@ -204,4 +209,18 @@ form input, form button {
 .alert-text {
 	font-size: 0.9em;
 	color: steelblue;
+}
+
+div.hr {
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.milestones > a {
+    font-size: 13px;
+    color: white;
+	text-decoration: none;
+	background-color: steelblue;
+	padding: 4px 7px;
+	border-radius: 4px;
 }

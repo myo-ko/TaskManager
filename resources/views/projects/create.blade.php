@@ -3,12 +3,7 @@
 
 @section('content')
 <h2>Add new project</h2>
-@foreach ($errors->all() as $error)
-    <p style="color: firebrick; font-size: 0.8em;">Warning: {{ $error }}</p>
-@endforeach
-@if (session("status"))
-    <p style="color: steelblue; font-size: 0.9em;">{{ session("status") }}</p>
-@endif
+@includeIf('shared.result')
 <form class="form" action="" method="post">
     <input type="hidden" name="_token" value="{!! csrf_token() !!}">
     <div class="">

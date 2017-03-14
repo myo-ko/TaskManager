@@ -12,7 +12,7 @@ class Milestone extends Model
 
     protected $dates = ['start_date', 'due_date', ];
 
-    protected $appends = [ 'days_left', ];
+    protected $appends = [ 'late_days', ];
 
     public $timestamps = false;
 
@@ -24,5 +24,13 @@ class Milestone extends Model
     public function project()
     {
         return $this->belongsTo("App\Project", "project_id", "project_id");
+    }
+
+    public function getLateDaysAttribute()
+    {
+        $now = new \DateTime();
+        $due = date_create($this->due_date);
+        $count = $now->diff($due)->days;
+        return $count > 0 ? $count : 0;
     }
 }

@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Milestone;
 use App\Project;
+use App\Http\Requests\MilestoneFormRequest;
 
 class MilestoneController extends Controller
 {
@@ -36,9 +37,19 @@ class MilestoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MilestoneFormRequest $request)
     {
-        //
+        $project = Project::findOrFail($request->get("project_id"));
+        $milestone = new Milestone([
+            "ms_description" => $request->get("ms_description"),
+            "start_date" => $request->get("start_date"),
+            "due_date" => $request->get("due_date"),
+        ]);
+        $project->milestones()->save($milestone);
+
+        return redirect()->route("ProjectMilestones", [
+            "id" => $project->project_id,
+        ])->with("status", "New milestone successfully created.");
     }
 
     /**
@@ -50,7 +61,7 @@ class MilestoneController extends Controller
     public function show($id)
     {
         $projects = Project::all();
-        $milestone = Milestone::find($id);
+        $milestone = Milestone::findOrFail($id);
 
         $project = $milestone->project;
         $dueMilestones = $project->milestones->where('due_date', '<', Carbon::now());
@@ -64,6 +75,7 @@ class MilestoneController extends Controller
             'dueMilestones' => $dueMilestones,
             'milestones' => $milestones,
             'mid' => $milestone->milestone_id,
+            'tasks' => $tasks,
         ]);
     }
 
