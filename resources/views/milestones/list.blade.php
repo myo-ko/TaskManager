@@ -22,7 +22,7 @@
 <ol>
     @foreach ($milestones as $milestone)
         <li class="{{ isset($mid) && $mid == $milestone->milestone_id ? 'open' : '' }}">
-            <a href="route('MilestoneTasks', [ 'id' => $milestone->milestone_id, ])">{{ $milestone->ms_description }}</a>
+            <a href="{{ route('MilestoneTasks', [ 'id' => $milestone->milestone_id, ]) }}">{{ $milestone->ms_description }}</a>
             <time>Due: {{ $milestone->due_date->format('Y-m-d') }}</time>
             @if (isset($mid) && $mid == $milestone->milestone_id)
                 @yield('tasks')
