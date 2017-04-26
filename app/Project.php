@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Task;
 
 class Project extends Model
 {
@@ -13,7 +14,7 @@ class Project extends Model
 
     protected $dates = ['start_date', 'end_date', ];
 
-    protected $appends = [ 'days_left', ];
+    protected $appends = [ 'days_left', 'total_tasks', 'done_tasks', 'percent_done' ];
 
     public $timestamps = false;
 
@@ -21,6 +22,26 @@ class Project extends Model
     {
         $count = floor((strtotime($this->end_date) - time()) / (60 * 60 * 24));
         return $count < 0 ? 0 : $count;
+    }
+
+    public function getTotalTasksAttribute()
+    {
+        return count($this->tasks);
+    }
+
+    public function getDoneTasksAttribute()
+    {
+        $count = 0;
+        foreach ($this->tasks as $task)
+        {
+            $count += $task->status;
+        }
+        return $count;
+    }
+
+    public function getPercentDoneAttribute()
+    {
+        return $this->total_tasks == 0 ? 0 : ($this->done_tasks / $this->total_tasks) * 100;
     }
 
     public function milestones()
@@ -31,6 +52,11 @@ class Project extends Model
     public function users()
     {
         return $this->belongsToMany('App\User', "project_users", "project_id", "user_id");
+    }
+
+    public function tasks()
+    {
+        return $this->hasManyThrough("App\Task", "App\Milestone", "project_id", "milestone_id", "project_id");
     }
 
 

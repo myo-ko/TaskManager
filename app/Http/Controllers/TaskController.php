@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use App\User;
 use App\Milestone;
-use App\Project;
-use App\Http\Requests\MilestoneFormRequest;
+use App\User;
+use App\Task;
 
-class MilestoneController extends Controller
+use App\Http\Requests\TaskFormRequest;
+
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,19 +37,23 @@ class MilestoneController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MilestoneFormRequest $request)
+    public function store(TaskFormRequest $request)
     {
-        $project = Project::findOrFail($request->get("project_id"));
-        $milestone = new Milestone([
-            "ms_description" => $request->get("ms_description"),
+        $milestone = Milestone::findOrFail($request->get("milestone_id"));
+        $task = new Task([
+            "task_description" => $request->get("task_description"),
             "start_date" => $request->get("start_date"),
             "due_date" => $request->get("due_date"),
+            "status" => 0
         ]);
-        $project->milestones()->save($milestone);
 
-        return redirect()->route("ProjectMilestones", [
-            "id" => $project->project_id,
-        ])->with("status", "New milestone successfully created.");
+        $milestone->tasks()->save($task);
+
+        $task->users()->sync($request->get("users"));
+
+        return redirect()->route("MilestoneTasks", [
+            "id" => $milestone->milestone_id,
+        ])->with("status", "New task successfully created");
     }
 
     /**
@@ -60,24 +64,7 @@ class MilestoneController extends Controller
      */
     public function show($id)
     {
-        $projects = Project::all();
-        $milestone = Milestone::findOrFail($id);
-
-        $project = $milestone->project;
-        $dueMilestones = $project->milestones->where('due_date', '<', Carbon::now());
-        $milestones = $project->milestones->where('due_date', '>=', Carbon::now());
-        $tasks = $milestone->tasks;
-
-        return view("tasks.index",
-        [
-            'projects' => $projects,
-            'pid' => $project->project_id,
-            'dueMilestones' => $dueMilestones,
-            'milestones' => $milestones,
-            'mid' => $milestone->milestone_id,
-            'tasks' => $tasks,
-            'users' => $project->users,
-        ]);
+        //
     }
 
     /**
@@ -98,9 +85,15 @@ class MilestoneController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $task = Task::findOrFail($id);
+        $task->status = !$task->status;
+        $task->save();
+
+        return redirect()->route("MilestoneTasks", [
+            "id" => $task->milestone->milestone_id,
+        ])->with("status", "Task successfully updated.");
     }
 
     /**

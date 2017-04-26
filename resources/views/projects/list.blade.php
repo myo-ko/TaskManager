@@ -14,8 +14,8 @@
                 <span>{{ count($project->milestones) }} milestones</span>
             </div>
             <div class="progress">
-				<span class="bar"></span>
-				<span class="percent">23 tasks, 45% Done</span>
+				<span class="bar" style="width: {{ $project->percent_done }}%;"></span>
+				<span class="percent">{{ $project->total_tasks }} tasks, {{ $project->percent_done }}% Done</span>
 			</div>
         </li>
     @endforeach

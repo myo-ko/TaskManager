@@ -64,7 +64,7 @@ h1 {
 .projects li.active {
 	background: #ffd;
 	border: 1px solid #995;
-	border-radius: 10px 0 0 10px;
+	border-radius: 5px 0 0 5px;
 	border-right: 0 none;
 	padding: 20px;
 }
@@ -113,7 +113,7 @@ h1 {
 	width: 840px;
 	float: right;
 	border: 1px solid #995;
-	border-radius: 10px;
+	border-radius: 5px;
 	background: #ffd;
 	color: #444;
 	padding: 30px 20px;

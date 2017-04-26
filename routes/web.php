@@ -33,6 +33,13 @@ Route::group(["prefix" => "milestones"], function(){
 
     Route::post("/store", "MilestoneController@store")->name("MilestoneStore");
 
-    
+
+});
+
+Route::group( ["prefix" => "tasks" ], function(){
+
+    Route::post("/store", "TaskController@store")->name("TaskStore");
+
+    Route::get("/update/{id}", "TaskController@update")->name("TaskUpdate");
 
 });

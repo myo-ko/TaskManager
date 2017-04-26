@@ -1,4 +1,4 @@
-
+@includeIf('shared.result')
 <h2 class="late">Late Milestones</h2>
 @if (count($dueMilestones))
 <ol class="overdue">
@@ -67,7 +67,6 @@
 <div class="hr"></div>
 
 <h2 class="new">New Milestone</h2>
-@includeIf('shared.result')
 <form class="" action="{{ route('MilestoneStore') }}" method="post">
     <input type="hidden" name="_token" value="{!! csrf_token() !!}" />
     <input type="hidden" name="project_id" value="{{ $pid }}" />
