@@ -13,11 +13,13 @@
 
 Route::get('/', "HomeController@Index")->name("Home");
 
-Route::get('/login', "HomeController@Login");
+Route::get('/login', "Auth\LoginController@index")->name("Login");
 
-Route::post('/login', "HomeController@CheckLogin");
+Route::post('/login', "Auth\LoginController@login");
 
-Route::group([ "prefix" => "project", ], function(){
+Route::get("/logout", "Auth\LoginController@logout")->name("Logout");
+
+Route::group([ "prefix" => "project", "middleware" => "auth" ], function(){
 
     Route::get("/new", 'ProjectController@create');
 
@@ -27,7 +29,7 @@ Route::group([ "prefix" => "project", ], function(){
 
 });
 
-Route::group(["prefix" => "milestones"], function(){
+Route::group(["prefix" => "milestones", "middleware" => "auth", ], function(){
 
     Route::get("/{id}", "MilestoneController@show")->name("MilestoneTasks");
 
@@ -36,7 +38,7 @@ Route::group(["prefix" => "milestones"], function(){
 
 });
 
-Route::group( ["prefix" => "tasks" ], function(){
+Route::group( ["prefix" => "tasks", "middleware" => "auth", ], function(){
 
     Route::post("/store", "TaskController@store")->name("TaskStore");
 

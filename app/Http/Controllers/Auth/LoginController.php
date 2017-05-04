@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Lang;
+
+use App\Http\Requests\LoginFormRequest;
 
 class LoginController extends Controller
 {
@@ -35,5 +39,31 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
+    }
+
+    public function index()
+    {
+        return view('user.login');
+    }
+
+    public function login(LoginFormRequest $request)
+    {
+        $credentials = [
+            "username" => $request->get("username"),
+            "password" => $request->get("password"),
+        ];
+
+        if (Auth::attempt($credentials))
+        {
+            return redirect()->intended('/');
+        }else{
+            return redirect()->back()->withErrors([ "username" => Lang::get("auth.failed"), ]);
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route("Login");
     }
 }
