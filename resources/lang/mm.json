@@ -1,0 +1,35 @@
+{
+    "Task Manager" : "စီမံကိန်းခန့်ခွဲမှုဆော့ဖ်ဝဲ",
+
+    "Username" : "User အမည်",
+    "Password" : "စကားဝှက်",
+    "Login" : "Login ဝင်ရောက်မည်",
+    "Your username" : "သင်၏အမည်",
+    "Your password" : "သင်၏စကားဝှက်",
+
+    "Project Description" : "စီမံကိန်းအ‌ကြောင်း",
+    "Project Start Date" : "စီမံကိန်းစတင်မည့်နေ့စွဲ",
+    "Project End Date" : "စီမံကိန်းပြီးမည့်နေ့စွဲ",
+    "Users" : "တာဝန်ပေးမည့်သူများ",
+    "Back" : "ပြန်သွားမည်",
+
+    "Due" : "နောက်ဆုံးနေ့စွဲ",
+    ":days days left" : ":days ရက်ကျန်",
+    ":members members" : "မန်ဘာ :members ယောက်",
+    ":no milestones" : "မှတ်တိုင် :no ခု",
+    ":no tasks" : "တာဝန် :no ခု",
+    ":percent% Done" : ":percent% ပြီးစီး",
+
+    "Late Milestones" : "နောက်ကျနေသော မှတ်တိုင်များ",
+    ":no days ago" : "လွန်ခဲ့သော :no ရက်က",
+    "Upcoming Milestones" : "လက်ရှိ မှတ်တိုင်များ",
+    "** No milestone yet... **" : "မှတ်တိုင်မရှိသေးပါ",
+    "New Milestone" : "မှတ်တိုင်အသစ်ထည့်ရန်",
+
+    "milestone description" : "မှတ်တိုင် အ‌ကြောင်း",
+    "start date" : "စတင်နေ့စွဲ",
+    "end date" : "နောက်ဆုံးနေ့စွဲ",
+    "Save" : "သိမ်းမည်",
+
+    "task description" : "တာဝန်အ‌ကြောင်း"
+}

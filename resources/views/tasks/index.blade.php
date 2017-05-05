@@ -31,9 +31,9 @@
     <form action="{{ route('TaskStore') }}" method="POST">
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
         <input type="hidden" name="milestone_id" value="{{ $mid }}">
-        <input type="text" name="task_description" value="{{ old('task_description') }}" placeholder="description">
-        <input type="text" name="start_date" class="form-control date-picker" value="{{ old('start_date') }}" placeholder="start date">
-        <input type="text" name="due_date" class="form-control date-picker" value="{{ old('due_date') }}" placeholder="due date">
+        <input type="text" name="task_description" value="{{ old('task_description') }}" placeholder="{{ __("task description") }}">
+        <input type="text" name="start_date" class="form-control date-picker" value="{{ old('start_date') }}" placeholder="{{ __("start date") }}">
+        <input type="text" name="due_date" class="form-control date-picker" value="{{ old('due_date') }}" placeholder="{{ __("end date") }}">
         <div style="margin: 3px 0px;">
             <select class="" name="users[]" multiple="multiple" id="users">
                 @foreach ($users as $user)
@@ -44,7 +44,7 @@
             </select>
         </div>
 
-        <input type="submit" name="submit" value="Save" class="ui-button ui-widget ui-corner-all">
+        <input type="submit" name="submit" value="{{ __("Save") }}" class="ui-button ui-widget ui-corner-all">
     </form>
     <!-- end form -->
 @endsection

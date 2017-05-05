@@ -13,13 +13,15 @@
 
 Route::get('/', "HomeController@Index")->name("Home");
 
+Route::post('/lang', "LanguageController@store")->name("LANG_CHANGE");
+
 Route::get('/login', "Auth\LoginController@index")->name("Login");
 
 Route::post('/login', "Auth\LoginController@login");
 
 Route::get("/logout", "Auth\LoginController@logout")->name("Logout");
 
-Route::group([ "prefix" => "project", "middleware" => "auth" ], function(){
+Route::group([ "prefix" => "project", "middleware" => ["auth", "web"]], function(){
 
     Route::get("/new", 'ProjectController@create');
 

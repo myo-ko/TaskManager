@@ -92,7 +92,7 @@ h1 {
 	border: 1px solid #ddd;
 	background: #bb9;
 	color: #fff;
-	height: 18px;
+	height: 22px;
 }
 
 .projects .progress .bar {
@@ -100,7 +100,7 @@ h1 {
 	position: absolute;
 	width: 45%;
 	background: #996;
-	height: 18px;
+	height: 22px;
 }
 
 .projects .progress .percent {
