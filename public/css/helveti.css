@@ -1,0 +1,39 @@
+.helveti-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.helveti-list li {
+    font: 1.1em Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+
+}
+
+.helveti-list li:last-child {
+    border: none;
+}
+
+.helveti-list li a {
+    padding: 8px 0px;
+    text-decoration: none;
+    color: #DD5044;
+    display: block;
+    /*width: 200px;*/
+
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.helveti-list li a:hover {
+    font-size: 20px;
+    /* background: #f6f6f6; */
+}
+
+.helveti-list li a span {
+    color: #666;
+    font-size: 12px;
+}

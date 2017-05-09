@@ -7,6 +7,7 @@
     "Your username" : "သင်၏အမည်",
     "Your password" : "သင်၏စကားဝှက်",
 
+    "New Project" : "စီမံကိန်းအသစ်",
     "Project Description" : "စီမံကိန်းအ‌ကြောင်း",
     "Project Start Date" : "စီမံကိန်းစတင်မည့်နေ့စွဲ",
     "Project End Date" : "စီမံကိန်းပြီးမည့်နေ့စွဲ",
@@ -31,5 +32,17 @@
     "end date" : "နောက်ဆုံးနေ့စွဲ",
     "Save" : "သိမ်းမည်",
 
-    "task description" : "တာဝန်အ‌ကြောင်း"
+    "task description" : "တာဝန်အ‌ကြောင်း",
+
+    "Login Name" : "Login ဝင်သည့်အမည်",
+    "Login username" : "Login ဝင်သည့်အမည်",
+    "Role" : "အဆင့်",
+    "Your role" : "လုပ်ပိုင်ခွင့်",
+    "User Information" : "User အ‌ကြောင်း",
+    "Participated projects" : "ပါဝင်သော လုပ်ငန်းများ",
+    "to" : "မှ",
+
+    "Profile" : "ပရိုဖိုင်း",
+    "Project List" : "စီမံကိန်းစာရင်း"
+
 }

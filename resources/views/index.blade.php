@@ -6,6 +6,8 @@
 	<lin rel="icon" href="{{ URL::asset('favicon.ico') }}">
 	<link href="{{ URL::asset('css/style.css') }}" rel="stylesheet">
 	<link href="{{ URL::asset('css/jquery-ui.min.css') }}" rel="stylesheet">
+	<link href="{{ URL::asset('css/helveti.css') }}" rel="stylesheet">
+	<link href="{{ URL::asset('css/simple-form.css') }}" rel="stylesheet">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script type="text/javascript" src="{{ URL::asset('js/jquery-ui.min.js') }}"></script>
@@ -63,8 +65,6 @@
 					$('#LangChangeForm').submit();
 
 				});
-
-
 
 			});
 

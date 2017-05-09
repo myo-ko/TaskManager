@@ -18,7 +18,7 @@
             @endif
             <span>(
                 @foreach ($task->users as $user)
-                    <a href="#">{{ $user->username }}</a>{{ $loop->last ? "" : "," }}
+                    <a href="{{ route("ShowUser", ["id" => $user->id, ]) }}">{{ $user->display_name }}</a>{{ $loop->last ? "" : "," }}
                 @endforeach)
             </span>
         </li>

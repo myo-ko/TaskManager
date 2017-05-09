@@ -29,6 +29,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = [ 'is_admin' ];
+
+    public function getIsAdminAttribute()
+    {
+        return $this->role == 2;
+    }
+
     public function projects()
     {
         return $this->belongsToMany('App\Project', 'project_users', 'user_id', 'project_id');

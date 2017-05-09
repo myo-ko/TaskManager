@@ -1,0 +1,86 @@
+.simple-form {
+    margin: 10px 0 0 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.simple-form-heading{
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+}
+.simple-form label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.simple-form label > span{
+    width: 150px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+}
+.simple-form span.required{
+    color:red;
+}
+.simple-form .tel-number-field{
+    width: 40px;
+    text-align: center;
+}
+.simple-form input.input-field{
+    width: 35%;
+}
+
+.simple-form input.input-field:disabled, .simple-form .select-field:disabled {
+    cursor: no-drop;
+}
+
+.simple-form input.input-field,
+.simple-form .tel-number-field,
+.simple-form .textarea-field,
+ .simple-form .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #BF9B30;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+.simple-form .input-field:focus,
+.simple-form .tel-number-field:focus,
+.simple-form .textarea-field:focus,
+.simple-form .select-field:focus{
+    border: 1px solid #ACAE00;
+}
+.simple-form .textarea-field{
+    height:100px;
+    width: 55%;
+}
+.simple-form input[type=submit],
+.simple-form input[type=button]{
+    border: none;
+    background: #FF8500;
+    color: #fff;
+    box-shadow: 1px 1px 4px #DADADA;
+    -moz-box-shadow: 1px 1px 4px #DADADA;
+    -webkit-box-shadow: 1px 1px 4px #DADADA;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+.simple-form input[type=submit]:hover,
+.simple-form input[type=button]:hover{
+    background: #EA7B00;
+    color: #fff;
+}
+.simple-form input[type=submit]:disabled,
+.simple-form input[type=button]:disabled{
+    cursor: no-drop;
+    background: #999;
+}

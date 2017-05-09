@@ -1,3 +1,4 @@
+<a href="{{ route("NewProject") }}">{{ __("New Project") }}</a>
 <ul>
     @foreach ($projects as $project)
         <li class='{{ isset($pid) && $pid == $project->project_id ? "active" : "" }}'>

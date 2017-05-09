@@ -1,9 +1,9 @@
 <div class="header">
     <h1>{{ __("Task Manager") }}</h1>
     <div>
-        <a href="#">Profile</a> |
+        <a href="{{ route("ShowUser", ["id" => Auth::id(), ]) }}">{{ __("Profile") }}</a> |
+        <a href="{{ route("Home") }}">{{ __("Project List") }}</a> |
         <a href="{{ route("Logout") }}">Logout</a>
-        <br>
         <form method="POST" action="{{ route('LANG_CHANGE') }}" id="LangChangeForm" class="widget" style="margin-top: 5px;">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
             <label for="radio-1" class="checkboxradiolabel">EN</label>
