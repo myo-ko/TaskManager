@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProjectFormRequest extends FormRequest
+class UserFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,17 +24,14 @@ class ProjectFormRequest extends FormRequest
     public function rules()
     {
         return [
-            "description" => "required",
-            "start_date" => "required|date",
-            "end_date" => "required|date|after_or_equal:start_date",
+            "displayName" => "required|max:255",            
         ];
     }
 
     public function messages()
     {
         return [
-            "description.required" => "Please enter project description.",
-            "start_date.date" => "Date format is incorrect.",
+            "displayName.required" => "Please enter a display name",
         ];
     }
 }

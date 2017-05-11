@@ -1,4 +1,4 @@
-<a href="{{ route("NewProject") }}">{{ __("New Project") }}</a>
+<a href="{{ route("NewProject") }}" class="ui-button ui-widget ui-corner-all">{{ __("New Project") }}</a>
 <ul>
     @foreach ($projects as $project)
         <li class='{{ isset($pid) && $pid == $project->project_id ? "active" : "" }}'>
@@ -9,7 +9,7 @@
             </div>
             <div class="meta">
                 <img src="{{ asset('css/img/users.png') }}" width="16" alt="">
-                <a href="#">{{ __(":members members", ["members" => count($project->users)])}}</a>
+                <a href="{{ route("EditProject", ["id" => $project->project_id, ]) }}">{{ __(":members members", ["members" => count($project->users)])}}</a>
 
                 <img src="{{ asset('css/img/milestones.png') }}" width="16" alt="">
                 <span>{{ __(":no milestones", ["no" => count($project->milestones)]) }}</span>

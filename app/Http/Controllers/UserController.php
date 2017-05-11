@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-
+use App\Http\Requests\UserFormRequest;
 
 class UserController extends Controller
 {
@@ -76,9 +76,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserFormRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->display_name = $request->get('displayName');
+        if ($request->get("role") != null)
+        {
+            $user->role = $request->get("role");
+        }
+        $user->save();
+        return redirect()->back()->with("user", $user)->with("status", "User profile updated.");
     }
 
     /**

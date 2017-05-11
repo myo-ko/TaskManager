@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\User;
 use App\Project;
 use App\Http\Requests\ProjectFormRequest;
+use App\Http\Requests\ProjectEditFormRequest;
 
 class ProjectController extends Controller
 {
@@ -80,7 +81,12 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $users = User::all();
+        return view("projects.edit", [
+            "project" => $project,
+            "users" => $users,
+        ]);
     }
 
     /**
@@ -90,9 +96,16 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProjectEditFormRequest $request, $id)
     {
-        //
+        $project = Project::findOrFail($id);
+        $project->description = $request->get("description");
+        $project->start_date = $request->get("start_date");
+        $project->end_date = $request->get("end_date");
+        $project->save();
+
+        $project->users()->sync($request->get("users"));
+        return redirect()->back()->with("status", "Project status updated.");
     }
 
     /**

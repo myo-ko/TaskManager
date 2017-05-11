@@ -27,6 +27,10 @@ Route::group([ "prefix" => "project", "middleware" => ["auth", "web"]], function
 
     Route::post("/new", 'ProjectController@store');
 
+    Route::get("/edit/{id}", "ProjectController@edit")->name("EditProject");
+
+    Route::post("/edit/{id}", "ProjectController@update")->name("UpdateProject");
+
     Route::get("/{id}", "ProjectController@show")->name("ProjectMilestones");
 
 });
@@ -52,5 +56,6 @@ Route::group(["prefix" => "user", "middleware" => ["auth"],], function()
 {
     Route::get("/{id}", "UserController@show")->name("ShowUser");
 
+    Route::post("/update/{id}", "UserController@update")->name("UpdateUser");
 
 });

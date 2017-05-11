@@ -2,10 +2,10 @@
 @section('title', 'User')
 
 @section('content')
-    <form class="simple-form" action="" method="post">
+    <form class="simple-form" action="{{ route("UpdateUser", ["id" => $user->id, ]) }}" method="post">
         <h3 class="simple-form-heading">{{ __("User Information") }}</h3>
+        @includeIf("shared.result")
         <input type="hidden" name="_token" value="{!! csrf_token() !!}">
-        <input type="hidden" name="id" value="{{ $user->id }}">
 
         @if ($usernameEditable)
         <label for="username">
@@ -24,7 +24,7 @@
 
         <label for="role">
             <span>{{ __("Role") }} :</span>
-            <select class="select-field" name="name" id="role" {{ $roleEditable ? "" : "disabled" }}>
+            <select class="select-field" name="role" id="role" {{ $roleEditable ? "" : "disabled" }}>
                 <option value="2" {{ $user->is_admin ? "selected" : "" }}>Admin</option>
                 <option value="1" {{ $user->is_admin ? "" : "selected" }}>User</option>
             </select>
