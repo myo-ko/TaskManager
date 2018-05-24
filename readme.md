@@ -9,7 +9,7 @@
 
 ## About This App
 
-This is a sample task manager application to demonstrate the use of Laravel framework. It is not yet hosted on any server.--
+This is a sample task manager application to demonstrate the use of Laravel framework. It is not yet hosted on any server.<br>
 
 -- by Myo Ko Ko
 
